@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: #f5f7fa;
   color: #333;
 }
@@ -43,7 +43,7 @@ h1 {
   padding: 1rem;
   border-left: 4px solid #4caf50;
   border-radius: 4px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -65,7 +65,7 @@ h1 {
 }
 
 .markdown code {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.95em;
 }
 
@@ -84,20 +84,22 @@ button:disabled {
 }
 
 .title {
-  font-family: 'Kaushan Script', sans-serif;
+  font-family: "Kaushan Script", sans-serif;
   font-size: 2.4em;
   font-weight: bold;
   text-align: center;
-  background: linear-gradient(270deg,
-      #f7797d,
-      #00c6ff,
-      #0072ff,
-      #6a82fb,
-      #b06ab3,
-      #f7797d,
-      #6a82fb,
-      #0072ff,
-      #00c6ff);
+  background: linear-gradient(
+    270deg,
+    #f7797d,
+    #00c6ff,
+    #0072ff,
+    #6a82fb,
+    #b06ab3,
+    #f7797d,
+    #6a82fb,
+    #0072ff,
+    #00c6ff
+  );
   background-size: 1600% 1600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

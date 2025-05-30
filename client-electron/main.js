@@ -1,11 +1,11 @@
-const { app, globalShortcut, BrowserWindow } = require('electron');
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
-const FormData = require('form-data');
-const screenshot = require('screenshot-desktop');
+const { app, globalShortcut, BrowserWindow } = require("electron");
+const fs = require("fs");
+const path = require("path");
+const axios = require("axios");
+const FormData = require("form-data");
+const screenshot = require("screenshot-desktop");
 
-const screenshotDir = path.join(__dirname, 'screenshots');
+const screenshotDir = path.join(__dirname, "screenshots");
 
 // 确保 screenshots 文件夹存在
 if (!fs.existsSync(screenshotDir)) {
@@ -13,34 +13,34 @@ if (!fs.existsSync(screenshotDir)) {
 }
 
 async function captureScreen() {
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
     const tmpFilename = `screenshot-tmp.png`; // 固定上传图
     const historyFilename = `screenshot-${timestamp}.png`; // 保留历史
     const tmpPath = path.join(screenshotDir, tmpFilename);
     const historyPath = path.join(screenshotDir, historyFilename);
 
     try {
-        const imgBuffer = await screenshot({ format: 'png' });
+        const imgBuffer = await screenshot({ format: "png" });
 
         // 保存一份临时上传图
         fs.writeFileSync(tmpPath, imgBuffer);
-        console.log('📸 临时截图保存成功:', tmpPath);
+        console.log("📸 临时截图保存成功:", tmpPath);
 
         // 同时保存一份历史图
         fs.writeFileSync(historyPath, imgBuffer);
-        console.log('🗂️ 历史截图已保存:', historyPath);
+        console.log("🗂️ 历史截图已保存:", historyPath);
 
         // 上传临时图
         const form = new FormData();
-        form.append('file', fs.createReadStream(tmpPath));
+        form.append("file", fs.createReadStream(tmpPath));
 
-        const response = await axios.post('http://localhost:8000/upload', form, {
-            headers: form.getHeaders()
+        const response = await axios.post("http://localhost:8000/upload", form, {
+            headers: form.getHeaders(),
         });
 
-        console.log('\n🧠 AI 回答：\n' + response.data.answer);
+        console.log("\n🧠 AI 回答：\n" + response.data.answer);
     } catch (err) {
-        console.error('❌ 截图或上传失败:', err);
+        console.error("❌ 截图或上传失败:", err);
     }
 }
 
@@ -72,21 +72,21 @@ async function captureScreen() {
 // }
 
 app.whenReady().then(() => {
-    const registered = globalShortcut.register('CommandOrControl+Shift+S', () => {
-        console.log('⌨️ 快捷键触发，正在截图...');
+    const registered = globalShortcut.register("CommandOrControl+Shift+S", () => {
+        console.log("⌨️ 快捷键触发，正在截图...");
         captureScreen();
     });
 
     if (!registered) {
-        console.log('❌ 快捷键注册失败');
+        console.log("❌ 快捷键注册失败");
     }
 
     // 隐藏窗口，保持 app 活跃
     new BrowserWindow({ show: false });
 
-    console.log('🚀 SnapMind Electron 客户端已启动，按 Ctrl+Shift+S 开始截图');
+    console.log("🚀 SnapMind Electron 客户端已启动，按 Ctrl+Shift+S 开始截图");
 });
 
-app.on('will-quit', () => {
+app.on("will-quit", () => {
     globalShortcut.unregisterAll();
 });
