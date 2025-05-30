@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e88e5;
+}
+
+.info {
+  color: #555;
+  font-style: italic;
+}
+
+.error {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.tag {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+  color: #4caf50;
+}
+
+.answer {
+  white-space: pre-wrap;
+  background: #f0f0f0;
+  padding: 1rem;
+  border-left: 4px solid #4caf50;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.markdown {
+  background: #f9f9f9;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.markdown pre {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.markdown code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95em;
+}
+
+button {
+  background-color: #409eff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.title {
+  font-family: 'Kaushan Script', sans-serif;
+  font-size: 2.4em;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(270deg,
+      #f7797d,
+      #00c6ff,
+      #0072ff,
+      #6a82fb,
+      #b06ab3,
+      #f7797d,
+      #6a82fb,
+      #0072ff,
+      #00c6ff);
+  background-size: 1600% 1600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave 12s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}

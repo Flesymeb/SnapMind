@@ -1,0 +1,6 @@
+fastapi==0.115.12
+openai==1.82.1
+Pillow==11.2.1
+pyperclip==1.9.0
+pytesseract==0.3.13
+Requests==2.32.3

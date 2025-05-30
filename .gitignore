@@ -1,0 +1,8 @@
+node_modules/
+.env
+pycache/
+dist/
+.vscode/
+client-electron/screenshots/*.png
+*__pycache__*
+.idea/
